@@ -20,5 +20,7 @@
 
 0242-valid-anagram
 
+0977-squares-of-a-sorted-array
+
 1290-convert-binary-number-in-a-linked-list-to-integer
 
