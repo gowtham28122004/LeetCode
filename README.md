@@ -19,7 +19,6 @@
 0238-product-of-array-except-self
 
 0242-valid-anagram
-
 0278-first-bad-version
 
 0977-squares-of-a-sorted-array
