@@ -3,14 +3,13 @@ class Solution {
         int count = 0;
         
         while(num > 0){
-            if(num % 2 == 0){
+            if(num % 2 == 0)
                 num /= 2;
-                count++;
-            }
-            else{
+            else
                 num -= 1;
-                count++;
-            }
+            
+            count++;
+        
         }
         
         return count;
