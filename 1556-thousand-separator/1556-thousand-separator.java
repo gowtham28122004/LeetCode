@@ -1,6 +1,6 @@
 class Solution {
     public String thousandSeparator(int n) {
-        if (n < 1000) 
+        if (n == 0) 
             return Integer.toString(n);
         
         String result = "";
