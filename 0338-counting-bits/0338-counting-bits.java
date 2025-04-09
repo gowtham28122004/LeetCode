@@ -1,17 +1,15 @@
 class Solution {
     public int[] countBits(int n) {
-        int arr[] = new int[n+1];
-        int i = n;
-        while(i >= 0){
-            int x = 0;
-            int t = i;
-            while(t != 0){
-                x += t % 2;
-                t >>= 1;
-            }
-            arr[i] = x;
-            i--;
-        }
-        return arr;
+        int[] ans = new int[n+1];
+        countBits(ans, 1, 1);
+        return ans;
+        
+    }
+    public void countBits(int[] ans, int n, int count) {
+        if (n >= ans.length) return;
+        ans[n] = count;
+        int val = n<<1;
+        countBits(ans, val, count);
+        countBits(ans, val+1, count+1);
     }
 }
