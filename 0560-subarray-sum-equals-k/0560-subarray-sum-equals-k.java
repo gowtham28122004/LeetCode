@@ -1,18 +1,17 @@
 class Solution {
-    public int subarraySum(int[] nums, int k) {
-        return countSubarrays(nums, k, 0);
-    }
-
-    private int countSubarrays(int[] nums, int k, int start) {
-        if (start == nums.length) return 0;
-
-        int count = 0, sum = 0;
-
-        for (int end = start; end < nums.length; end++) {
-            sum += nums[end];
-            if (sum == k) count++;
+    public int subarraySum(int[] arr, int k) {
+        int n = arr.length;
+        int count = 0;
+        for(int i = 0; i < n;i++) {
+            int sum = 0;
+            for(int j = i;j < n;j++) {
+                if(sum + arr[j] <= k)
+                    sum += arr[j];
+                else
+                    break;
+                if(sum == k) count++;
+            }
         }
-
-        return count + countSubarrays(nums, k, start + 1);
+        return count;
     }
 }
