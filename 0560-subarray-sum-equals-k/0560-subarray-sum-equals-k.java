@@ -5,13 +5,11 @@ class Solution {
         for(int i = 0; i < n;i++) {
             int sum = 0;
             for(int j = i;j < n;j++) {
-                if(sum + arr[j] <= k)
-                    sum += arr[j];
-                else
-                    break;
+                sum += arr[j];
                 if(sum == k) count++;
             }
         }
+        System.gc();
         return count;
     }
 }
