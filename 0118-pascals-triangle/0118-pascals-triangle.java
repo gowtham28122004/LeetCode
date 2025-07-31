@@ -10,8 +10,7 @@ class Solution {
                     row.add(1);
                 }
                 else{
-                    List<Integer> previousRow = pascal.get(i-1);
-                    row.add(previousRow.get(j)+previousRow.get(j-1));
+                    row.add(pascal.get(i-1).get(j)+pascal.get(i-1).get(j-1));
                 }
             }
             pascal.add(row);
