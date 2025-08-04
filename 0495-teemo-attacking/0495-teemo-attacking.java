@@ -1,13 +1,12 @@
 class Solution {
     public int findPoisonedDuration(int[] timeSeries, int duration) {
-        int res = duration;
-        for(int i = 0;i < timeSeries.length;i++) {
-            if(duration > timeSeries[i]) {
-                res++;
-            } else if(res < timeSeries[i]) {
-                res = timeSeries[i];
-            }
+        int time = 0;
+
+        for(int i = 1; i < timeSeries.length; i++){
+            int timeDiff = timeSeries[i] - timeSeries[i - 1];
+            time += Math.min(timeDiff,duration);
         }
-        return res;
+
+        return time + duration;
     }
 }
