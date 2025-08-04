@@ -2,23 +2,26 @@ import java.util.*;
 
 class Solution {
     public boolean wordPattern(String pattern, String s) {
-        String[] str = s.split(" ");
-        if (str.length != pattern.length()) return false;
+        String[] words = s.split(" ");
+        if (pattern.length() != words.length) return false;
 
-        Map<Character, String> map = new LinkedHashMap<>();
-        Set<String> hs = new HashSet<>();
+        Map<Character, String> charToWord = new HashMap<>();
+        Map<String, Character> wordToChar = new HashMap<>();
 
-        for (int i = 0; i < str.length; i++) {
+        for (int i = 0; i < pattern.length(); i++) {
             char ch = pattern.charAt(i);
-            String word = str[i];
+            String word = words[i];
 
-            if (!map.containsKey(ch)) {
-                if (hs.contains(word)) return false;
+            if (charToWord.containsKey(ch)) {
+                if (!charToWord.get(ch).equals(word)) return false;
+            } else {
+                charToWord.put(ch, word);
+            }
 
-                map.put(ch, word);
-                hs.add(word);
-            } else if (!map.get(ch).equals(word)) {
-                return false;
+            if (wordToChar.containsKey(word)) {
+                if (wordToChar.get(word) != ch) return false;
+            } else {
+                wordToChar.put(word, ch);
             }
         }
 
