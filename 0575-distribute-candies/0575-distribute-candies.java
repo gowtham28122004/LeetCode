@@ -5,6 +5,6 @@ class Solution {
         for(int i : candyType) {
             set.add(i);
         }
-        return Math.min(cr,set.size());
+        return cr < set.size()?cr:set.size();
     }
 }
