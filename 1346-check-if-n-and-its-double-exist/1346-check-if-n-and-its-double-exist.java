@@ -1,18 +1,20 @@
 class Solution {
     public boolean checkIfExist(int[] arr) {
-        HashMap<Integer,Integer> map = new HashMap<>();
-
-        for(int i = 0;i < arr.length ; i++){
-            map.put(arr[i],i);
-        }
-
-        for(int i = 0;i < arr.length ; i++){
-            if(map.containsKey(2*arr[i]) && i != map.get(2*arr[i])){
-                return true;
+        for(int i=0;i<arr.length;i++)
+        {
+            int n=arr[i];
+            for(int j=0;j<arr.length;j++)
+            {
+                if(i!=j)
+                {
+                    if(n==arr[j]*2)
+                    {
+                        return true;
+                    }
+                }
             }
         }
-
         return false;
-
+        
     }
 }
